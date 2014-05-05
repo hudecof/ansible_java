@@ -1,0 +1,9 @@
+---
+- name: "update alternatives"
+  action: shell update-alternatives --quiet --install /usr/bin/{{ item }} {{ item }} {{ java_install_dir }}/{{ java_list[java_version][ansible_architecture]['dirname'] }}/bin/{{ item }} {{ java_list[java_version][ansible_architecture]['alternative_priority'] }}
+  with_items:
+    - java
+    - javac 
+  tags:
+    - java
+    - setup

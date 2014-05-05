@@ -1,0 +1,29 @@
+---
+galaxy_info:
+  author: Peter Hudec
+  description: Oracle Java
+  company: CNC, a.s.
+  license: license BSD
+  min_ansible_version: 1.5
+  platforms:
+  - name: EL
+    versions:
+    - all
+  - name: Fedora
+    versions:
+    - all
+  - name: opensuse
+    versions:
+    - all
+  - name: Ubuntu
+    versions:
+    - all
+  - name: SLES
+    versions:
+    - all
+  - name: Debian
+    versions:
+    - all
+  categories:
+  - web
+dependencies: []

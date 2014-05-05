@@ -1,0 +1,24 @@
+---
+- name: "create install directory"
+  action: file path={{ java_install_dir }} state=directory
+  tags:
+    - java
+    - setup
+
+- name: "download tar.gz file"
+  action: get_url url={{ java_download_prefix }}/{{ java_list[java_version][ansible_architecture]['filename'] }} dest={{ java_download_dir }}/oracle_java.tar.gz force=yes
+  tags:
+    - java
+    - setup
+
+- name: "unpack java"
+  action: shell creates={{ java_install_dir }}/{{ java_list[java_version][ansible_architecture]['dirname'] }} tar -C {{ java_install_dir }} -xzf {{ java_download_dir }}/oracle_java.tar.gz
+  tags:
+    - java
+    - setup
+
+- name: remove install file
+  action: file path={{ java_download_dir }}/oracle_java.tar.gz
+  tags:
+    - java
+    - setup

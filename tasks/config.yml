@@ -1,0 +1,16 @@
+---
+- name: "copy extra files"
+  action: get_url url={{ java_download_prefix }}/{{ item.src }} dest={{ java_install_dir }}/{{ java_list[java_version][ansible_architecture]['dirname'] }}/{{ item.dest }} force=yes
+  with_items: $java_extra_files
+  when: "item.state == 'enabled'"
+  tags:
+    - java
+    - config
+
+- name: "remove extra files"
+  action: file path={{ java_install_dir }}/{{ java_list[java_version][ansible_architecture]['dirname'] }}/{{ item.dest }} state=absent
+  with_items: $java_extra_files
+  when: "item.state != 'enabled'"
+  tags:
+    - java
+    - config

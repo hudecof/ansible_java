@@ -1,0 +1,24 @@
+---
+# defaults file for java
+
+# list of available java version on the {{ java_download_prefix }} site
+java_list: {}
+
+# java version from the {{ java_list }} keys
+java_version:
+
+# where to unpack the java tar.gz
+java_install_dir: /opt
+
+# where to download the java tar.gz
+java_download_dir: /tmp
+
+# location where is the java tar.gz located
+# fur filename from {{ java_version }} will be appended
+java_download_prefix: 
+
+# debian  update-alternatives install  priotity
+java_debian_priority: 2000
+
+# list of extra java libs to be included in the instalation
+java_extra_files: []
