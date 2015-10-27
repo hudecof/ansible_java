@@ -18,7 +18,7 @@
     - setup
 
 - name: remove install file
-  action: file path={{ java_download_dir }}/oracle_java.tar.gz
+  action: file path={{ java_download_dir }}/oracle_java.tar.gz state=absent
   tags:
     - java
     - setup
